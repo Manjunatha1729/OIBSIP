@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spacex</title>
+  <style>
+    body{
+     padding: 0;
+     margin: 0;
+     background-color: black;
+     box-sizing: border-box;
+     font-family: 'Josefin Sans', sans-serif;
+     height: 700vh;
+     width: auto;
+     
+    }
+    .section-one{
+      height:130vh;
+      width: 100%;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      border: none;
+    }
+    nav{
+      display: flex;
+      width: 100%;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 1vw 0;
+      
+    }
+    .logo{
+      color: rgb(250, 250, 2);
+      font-size: 2.5vw;
+      cursor: pointer;
+    }
+    span{
+      color:#e7ea15;
+      font-size: 2.5vw;
+    }
+    span:hover{
+      color: rgba(15, 219, 56, 0.843);
+      transition: 0.3s;
+    }
+    nav ul{
+      flex: 1;
+      text-align: right;
+      padding-right: 1vw;
+    }
+    nav ul li{
+      list-style-type: none;
+      display: inline-block;
+      margin: 1vw 2vw;
+      font-size: 1.6vw;
+      font-weight: bold;
+    }
+    nav ul li a{
+       color: rgb(236, 231, 231);
+       text-decoration: none;
+       position: relative;
+    }
+    nav ul li a::after{
+      content: '';
+      width: 0;
+      height: 0.5vh;
+      position: absolute;
+      left: 50%;
+      bottom: -5px;
+      transform: translateX(-50%);
+      background: white;
+      transition: width 0.3s;
+    }
+    nav ul li a:hover::after{
+      width:75%;
+    }
+    #playButton {
+    padding: 10px 20px;
+    background-color: #4285F4;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+  }
+   #video-container {
+        object-fit: cover;
+        top: 0;
+        left: 0;
+        width:100vw;
+        height: 130vh;
+        z-index: -1;
+        position: absolute;
+        opacity: 0.8;
+    }
+  #video-container video {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+      opacity: 0.9;
+}
+  .text-box{
+    position: absolute;
+    top: 43%;
+    color: white;
+    left:10%;
+  }
+  .text-box h1{
+    font-size:12vh;
+    line-height:20vh;
+    margin: 1vh;
+    color: transparent;
+    -webkit-text-stroke: 0.2vh white;
+    background: url(back.png);
+    -webkit-background-clip: text;
+    background-position: 0 0;
+    animation: back 20s linear infinite;
+
+  }
+  @keyframes back{
+    100%{
+      background-position: 1000px 0;
+    }
+  }
+  .text-box p{
+    font-size:5vh;
+    font-weight: 600;
+    margin: 1vw;
+  }
+  
+  .row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 5vh;
+  }
+  .text-box a{
+    color:white;
+    text-decoration: none;
+    padding: 8px;
+    margin-right: 1vw;
+    border: 0.3vh solid white;
+    font-size: 1.3vw;
+  }
+  .text-box a:hover{
+    letter-spacing: 0.25em;
+    background: var(--clr);
+    box-shadow: 10px 0 50px var(--clr);
+  }
+  .text-box h2{
+    font-size: 3vh;
+    font-weight: 700;
+  }
+  .headings{
+    width:87vw;
+    height:150vh;
+    padding: 0px;
+    margin-top:-1px;
+    border: none;
+  }
+  .backgroundone{
+    width:100vw;
+    height:150vh;
+    position: absolute;
+    opacity: 0.8;
+   
+  }
+  .backgroundone img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .headingsdesign{
+    color:white;
+    width:20vw;
+    height: 60vh;
+    border: 2px solid white;
+    display:inline-table;
+    left:11%;
+    top: 30%;
+    position: relative;
+    margin-inline: 2vw;
+    padding: 2vh;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-size:1.0rem;
+  }
+  .headingsdesign:hover{
+     color:var(--clr);
+     box-shadow: 0 0 5vh var(--clr);
+  }
+  .headingsdesign:before{
+    content:'';
+    position: absolute;
+    inset:2px;
+    background: transparent;
+  }
+  .headingsdesign a{
+    position: relative;
+    z-index:1;
+  }
+  .headingsdesign a i{
+    position: absolute;
+    inset:0;
+    display: block;
+  }
+  .headingsdesign a i::before{
+    content: '';
+    position: absolute;
+    top:-1.2vw;
+    left:70%;
+    width:5vw;
+    height: 0.8vh;
+    background: #A020F0;
+    transform: translateX(-20%) skewX(325deg);
+    transition: 0.5s;
+  }
+  .headingsdesign:hover i::before{
+    width: 20%;
+    left: 20%;
+  }
+  .headingsdesign a i::after{
+    content: '';
+    position: absolute;
+    bottom:-16vh;
+    left:20%;
+    width:5vw;
+    height: 0.8vh;
+    background: #A020F0;
+    transform: translateX(-50%) skewX(325deg);
+    transition: 0.5s;
+  }
+  .headingsdesign:hover i::after{
+    width: 20%;
+    left: 80%;
+  }
+  .headingsdesign p{
+    font-size:20px;
+    font-family: roboto;
+  }
+  .missions1{
+    width:auto;
+    height:900px;
+    color: white;
+    position: relative;
+  }
+  .missions1 img{
+    width:100%;
+    height:100%;
+    opacity: 0.9;
+    z-index: -1;
+  }
+  .launch{
+    position: relative;
+    padding: 1px;
+    bottom:320px;
+    font-family: 'Roboto', sans-serif;
+    font-size:25px;
+    font-weight: 500;
+    left: 65px;
+  }
+  .name{
+    bottom: 340px ;
+    position: relative;
+    left:65px;
+    font-size: 50px;
+    
+  }
+  .btn{
+    background: none;
+    font-family: "montserrat",sans-serif;
+    text-transform: uppercase;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: color 0.4s linear;
+    color: rgb(227, 227, 237);
+    position: relative;
+    text-decoration: none;
+    border: 2px solid white;
+    font-size: 25px;
+    left:5%;
+    bottom: 350px;
+    font-weight: 500;
+  }
+  .btn:hover{
+    color:rgb(238, 233, 233);
+  }
+  .btn::before{
+    content:"";
+    position: absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height: 100%;
+    background: white;
+    z-index:-1;
+    transition: transform 0.5s;
+    transform-origin:0 0;
+    
+  }
+  .btn1::before{
+    transform: scaleY(0);
+  }
+  .btn1:hover::before{
+    transform:scaleY(1);
+  }
+  </style>
+</head>
+<body>
+  <div class="section-one">
+    <div id="video-container">
+      <video autoplay muted loop>
+          <source src="pexels-ingrid-north-1851190-3840x2160-25fps.mp4" type="video/mp4">
+      </video>
+  </div>
+    <nav>
+      <h2 class="logo">Space<span>X</span></h2>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="https://www.spacex.com/media/Capabilities&Services.pdf">Services</a></li>
+        <li><a href="https://www.spacex.com/careers/">Careers</a></li>
+        <li><a href="https://www.spacex.com/mission/">Missions</a></li>
+        <li><a href="https://www.spacex.com/launches/">Launches</a></li>
+        <li><a href="https://www.spacex.com/vehicles/starship/">Starship</a></li>
+      </ul>
+      
+    </nav>
+
+  <div class="text-box">
+    <p>Welcome To</p>
+    <h1>SPACEX</h1>
+    <h2> Discover the Universe's Marvels on our Space</h2>
+    <div class="row">
+      <a href="" style="--clr:#1e9bff">Explore More</a>
+      <a href="" style="--clr:#1e9bff">Connect With Us</a>
+    </div>
+  </div>
+  </div>
+  <div class="headings">
+    <div class="backgroundone">
+      <img src="pexels-spacex-23793.jpg">
+    </div>
+      <div class="headingsdesign" style="--clr:#00FFFF">
+       <a>  <h1>About Us</h1>
+      <p>We are passionate about the remarkable advancements made by SpaceX in revolutionizing the space industry and pushing the boundaries of human space exploration.our mission is to provide you with the latest news, updates, and in-depth information about SpaceX's missions rockets spacecraft and the visionary goals set by Elon Musk</p>
+       <i></i></a> 
+      </div>
+      <div class="headingsdesign" style="--clr:#6eff3e">
+       <a>  <h1>Mission Updates</h1>
+       <p>Stay up to date with the latest SpaceX missions and their progress.Get real-time updates on SpaceX's launches, mission objectives, launch schedules, and live streams. Stay informed about the latest developments and achievements in space exploration.Stay connected to the space technology and witness the remarkable achievements</p>  
+      <i></i></a>
+      </div>
+      <div class="headingsdesign" style="--clr:#ff1867">
+      <a> <h1>Launch Coverage</h1>
+      <p> Our launch coverage brings you front-row access to the exhilarating moments of SpaceX's rocket launches. Experience the anticipation, countdown, and ignition as these powerful rockets propel satellites, cargo, and crew to space. Watch live streams and videos capturing stage separations booster landings and payload deployments.</p>
+      <i></i></a>
+    </div>
+  </div>
+  <div class="missions1">
+    <img src="https://sxcontent9668.azureedge.us/cms-assets/assets/Star6_6_DSC_5045_desktop_41eddee186.jpg">
+    <p class="launch">RECENT LAUNCH</p>
+    <h1 class="name">STARLINK MISSION</h1>
+    <button onclick="spacex1()" class="btn btn1">REWATCH</button>
+    <script>
+      function spacex1(){
+        window.open('https://www.youtube.com/watch?v=9lwAP91Y7Cs&t=15s','_blank');
+      }
+    </script>
+   </div>
+    <div class="missions1">
+     <img src="https://sxcontent9668.azureedge.us/cms-assets/assets/PSN_Satria_pad39a_DSC_6855_desktop_6dd3f9c0d0.jpg">
+     <p class="launch">RECENT LAUNCH</p>
+     <h1 class="name">PSN SATRIA MISSION</h1>
+     <button onclick="spacex2()" class="btn btn1">REWATCH</button>
+     <script>
+      function spacex2(){
+        window.open('https://www.youtube.com/watch?v=4fEMCn2L3OY&t=144s','_blank');
+      }
+    </script>
+    </div>
+    <div class="missions1">
+      <img src="https://wallpapercave.com/wp/wp4267851.jpg">
+      <p class="launch">RECENT LAUNCH</p>
+      <h1 class="name">STARSHIP FLIGHT TEST</h1>
+      <button  onclick="spacex3()" class="btn btn1" >REWATCH</button>
+      <script>
+        function spacex3(){
+          window.open('https://www.youtube.com/watch?v=-1wcilQ58hI&t=5s','_blank');
+        }
+      </script>
+     </div>
+     <div>
+    </div>
+    <footer style="background-color: black; padding: 30px;">
+      <div style="max-width: 960px; margin: 0 auto; text-align: center;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div style="flex: 1;">
+            <h3 style="color: white; font-size: 24px; font-weight: bold; margin-bottom: 10px;">About Us</h3>
+            <p style="color: white; font-size: 16px;">Space Exploration Technologies Corp., is an American aerospace manufacturer and space transportation company founded by entrepreneur Elon Musk in 2002. Since its inception, SpaceX has made significant strides in the space industry and achieved several groundbreaking milestones.</p>
+          </div>
+          <div style="flex: 1;">
+            <h3 style="color: white; font-size: 24px; font-weight: bold; margin-bottom: 10px;">Contact Us</h3>
+            <p style="color: white; font-size: 16px;">2-236 Ananthapur<br>
+              Ananthapur, Andhra pradesh<br>
+              India<br>
+              Email:manju8nandu996@gmail.com<br>
+              Phone: 6305618335</p>
+          </div>
+          <div style="flex: 1;">
+            <h3 style="color: white; font-size: 24px; font-weight: bold; margin-bottom: 10px;">Follow Us</h3>
+            <ul style="list-style: none; padding: 0;">
+              <li style="display: inline-block; margin-right: 10px;"><a href="#" style="color: white; font-size: 20px;">Facebook</a></li>
+              <li style="display: inline-block; margin-right: 10px;"><a href="#" style="color: white; font-size: 20px;">Twitter</a></li>
+              <li style="display: inline-block; margin-right: 10px;"><a href="#" style="color: white; font-size: 20px;">Instagram</a></li>
+              <li style="display: inline-block; margin-right: 10px;"><a href="#" style="color: white; font-size: 20px;">YouTube</a></li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <p style="color: white; font-size: 14px; margin-top: 20px;">&copy; 2023 Space Website. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+      
+</body>
+</html>
+
